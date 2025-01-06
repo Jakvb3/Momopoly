@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cedw44jrruqjr"]
+
+[ext_resource type="Script" path="res://Script/player.gd" id="1_d67ts"]
+[ext_resource type="PackedScene" uid="uid://dtl05d851v6px" path="res://Scean/Gui.tscn" id="2_hcd7o"]
+[ext_resource type="Script" path="res://Script/CardManager.gd" id="4_q6600"]
+[ext_resource type="PackedScene" uid="uid://cqenn8iwi3gqv" path="res://Scean/Card.tscn" id="5_gqias"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yw62l"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_d67ts")
+
+[node name="Gui" parent="." instance=ExtResource("2_hcd7o")]
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("4_q6600")
+
+[node name="Card" parent="CardManager" instance=ExtResource("5_gqias")]
+position = Vector2(94, -214)
+
+[node name="Card2" parent="CardManager" instance=ExtResource("5_gqias")]
+position = Vector2(261, -209)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_yw62l")
