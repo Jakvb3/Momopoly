@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtl05d851v6px"]
+
+[ext_resource type="Script" path="res://Script/gui.gd" id="1_k1kxo"]
+
+[node name="Gui" type="CanvasLayer"]
+script = ExtResource("1_k1kxo")
+
+[node name="Sometext" type="Label" parent="."]
+offset_right = 53.0
+offset_bottom = 23.0
+text = "Pieniądze:"
+
+[node name="Money" type="Label" parent="."]
+offset_left = 80.0
+offset_right = 168.0
+offset_bottom = 23.0
+
+[node name="random" type="Button" parent="."]
+offset_top = 25.0
+offset_right = 118.0
+offset_bottom = 56.0
+text = "Rzuć kośćmi"
+
+[node name="buy_options" type="Node2D" parent="."]
+
+[node name="buy_text" type="Label" parent="buy_options"]
+offset_left = 10.0
+offset_right = 54.0
+offset_bottom = 23.0
+text = "Cena:"
+
+[node name="buy" type="Button" parent="buy_options"]
+offset_top = 30.0
+offset_right = 39.0
+offset_bottom = 61.0
+text = "Kup"
+
+[node name="no_buy" type="Button" parent="buy_options"]
+offset_left = 56.365
+offset_top = 30.0
+offset_right = 120.365
+offset_bottom = 61.0
+text = "Odrzuć"
+
+[connection signal="button_down" from="random" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="buy_options/buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="buy_options/no_buy" to="." method="_on_no_buy_pressed"]

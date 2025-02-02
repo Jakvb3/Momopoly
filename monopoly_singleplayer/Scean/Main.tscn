@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccrr2ri5wera3"]
+
+[ext_resource type="Script" path="res://Script/Main.gd" id="1_yfk8q"]
+[ext_resource type="PackedScene" uid="uid://g2lpqpcgkodb" path="res://Scean/Board.tscn" id="3_jfygh"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yfk8q")
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="Player_num" type="Control" parent="buttons"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -90.5
+offset_right = 113.5
+offset_bottom = 90.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(113.5, 90.5)
+size_flags_vertical = 4
+
+[node name="text" type="Label" parent="buttons/Player_num"]
+layout_mode = 2
+offset_right = 227.0
+offset_bottom = 23.0
+text = "Select the number of players:"
+
+[node name="2" type="Button" parent="buttons/Player_num"]
+layout_mode = 0
+offset_left = 74.5
+offset_top = 50.0
+offset_right = 152.5
+offset_bottom = 81.0
+pivot_offset = Vector2(39, 15)
+text = "2 Players"
+
+[node name="3" type="Button" parent="buttons/Player_num"]
+layout_mode = 2
+offset_left = 74.5
+offset_top = 100.0
+offset_right = 152.5
+offset_bottom = 131.0
+pivot_offset = Vector2(39, 15)
+text = "3 Players"
+
+[node name="4" type="Button" parent="buttons/Player_num"]
+layout_mode = 2
+offset_left = 74.5
+offset_top = 150.0
+offset_right = 152.5
+offset_bottom = 181.0
+pivot_offset = Vector2(39, 15)
+text = "4 Players"
+
+[node name="start" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -15.5
+offset_right = 28.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 15.5)
+size_flags_vertical = 4
+text = "START"
+
+[node name="now_player" type="Label" parent="."]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 22.0
+
+[node name="Board" parent="." instance=ExtResource("3_jfygh")]
+
+[connection signal="pressed" from="buttons/Player_num/2" to="." method="_on_2_pressed"]
+[connection signal="pressed" from="buttons/Player_num/3" to="." method="_on_3_pressed"]
+[connection signal="pressed" from="buttons/Player_num/4" to="." method="_on_4_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
